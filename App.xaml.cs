@@ -14,4 +14,6 @@ namespace TP2
     public partial class App : Application
     {
     }
+
+    public class 
 }
