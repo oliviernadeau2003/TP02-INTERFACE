@@ -23,5 +23,12 @@ namespace TP2
         {
             InitializeComponent();
         }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void recherche
     }
 }
