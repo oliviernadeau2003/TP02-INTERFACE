@@ -11,7 +11,5 @@ namespace TP2
     public partial class App : Application
     {
         public static new App Current { get { return (App)Application.Current; } }
-
-
     }
 }
