@@ -19,7 +19,7 @@
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 10 5 3">Category</TextBlock>
-                <ComboBox Margin="5 10 5 3"></ComboBox>
+                <ComboBox x:Name="OfferType" SelectionChanged="OfferType_SelectionChanged" Margin="5 10 5 3"></ComboBox>
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Sort by</TextBlock>
                 
                 

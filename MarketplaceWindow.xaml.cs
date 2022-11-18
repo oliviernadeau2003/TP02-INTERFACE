@@ -29,6 +29,14 @@ namespace TP2
 
         }
 
-        private void recherche
+        private void recherche()
+        {
+
+        }
+
+        private void OfferType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
