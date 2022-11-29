@@ -19,7 +19,11 @@
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 10 5 3">Category</TextBlock>
-                <ComboBox x:Name="OfferType" SelectionChanged="OfferType_SelectionChanged" Margin="5 10 5 3"></ComboBox>
+                <ComboBox x:Name="OfferType" SelectionChanged="OfferType_SelectionChanged" Margin="5 10 5 3">
+                    <ComboBoxItem>Cars</ComboBoxItem>
+                    <ComboBoxItem>Cars</ComboBoxItem>
+                    <ComboBoxItem>Cars</ComboBoxItem>
+                </ComboBox>
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Sort by</TextBlock>
                 
                 
@@ -67,8 +71,8 @@
                 <Button x:Name="search" Click="search_Click" Margin="10" Height="25" Background="RoyalBlue" Foreground="White">Search</Button>
 
             </StackPanel>
-            <StackPanel Grid.Column="1" Background="#FF3E3E3E">
-                
+            <StackPanel Grid.Column="1" Background="#FF3E3E3E" x:Name="Feed">
+               
             </StackPanel>
         </Grid>
     </StackPanel>

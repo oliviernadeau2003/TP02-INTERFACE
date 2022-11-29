@@ -9,7 +9,7 @@ namespace TP2.classes
         public string Description { get; set; }
         public DateTime Date { get; set; }
         //temporaire
-        public int Image { get; set; }
+        public string Image { get; set; }
         // public List<Car> GetNew { get {return  } }
 
     }
