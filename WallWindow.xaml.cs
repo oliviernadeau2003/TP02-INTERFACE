@@ -22,6 +22,8 @@ namespace TP2
         public WallWindow()
         {
             InitializeComponent();
+
+            Console.WriteLine(App.Current.Users);
         }
     }
 }
