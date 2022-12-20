@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\angry.png" />
+    <None Remove="Assets\Icons\like.png" />
+    <None Remove="Assets\Icons\love.png" />
+    <None Remove="Assets\Icons\sad.png" />
     <None Remove="Assets\Offers\Cars\car1.jpg" />
     <None Remove="Assets\Offers\Cars\car10.jpg" />
     <None Remove="Assets\Offers\Cars\car11.jpg" />
@@ -24,9 +28,30 @@
     <None Remove="Assets\Offers\Cars\car7.jpg" />
     <None Remove="Assets\Offers\Cars\car8.jpg" />
     <None Remove="Assets\Offers\Cars\car9.jpg" />
+    <None Remove="Assets\Posts\post1.jpg" />
+    <None Remove="Assets\Posts\post10.jpg" />
+    <None Remove="Assets\Posts\post11.jpg" />
+    <None Remove="Assets\Posts\post12.jpg" />
+    <None Remove="Assets\Posts\post2.jpg" />
+    <None Remove="Assets\Posts\post3.jpg" />
+    <None Remove="Assets\Posts\post4.jpg" />
+    <None Remove="Assets\Posts\post5.jpg" />
+    <None Remove="Assets\Posts\post6.jpg" />
+    <None Remove="Assets\Posts\post7.jpg" />
+    <None Remove="Assets\Posts\post8.jpg" />
+    <None Remove="Assets\Posts\post9.jpg" />
+    <None Remove="Assets\Users\user1.jpg" />
+    <None Remove="Assets\Users\user2.jpg" />
+    <None Remove="Assets\Users\user3.jpg" />
+    <None Remove="Assets\Users\user4.jpg" />
+    <None Remove="Assets\Users\user5.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icons\angry.png" />
+    <Resource Include="Assets\Icons\like.png" />
+    <Resource Include="Assets\Icons\love.png" />
+    <Resource Include="Assets\Icons\sad.png" />
     <Resource Include="Assets\Offers\Cars\car1.jpg" />
     <Resource Include="Assets\Offers\Cars\car10.jpg" />
     <Resource Include="Assets\Offers\Cars\car11.jpg" />
@@ -43,6 +68,23 @@
     <Resource Include="Assets\Offers\Cars\car7.jpg" />
     <Resource Include="Assets\Offers\Cars\car8.jpg" />
     <Resource Include="Assets\Offers\Cars\car9.jpg" />
+    <Resource Include="Assets\Posts\post1.jpg" />
+    <Resource Include="Assets\Posts\post10.jpg" />
+    <Resource Include="Assets\Posts\post11.jpg" />
+    <Resource Include="Assets\Posts\post12.jpg" />
+    <Resource Include="Assets\Posts\post2.jpg" />
+    <Resource Include="Assets\Posts\post3.jpg" />
+    <Resource Include="Assets\Posts\post4.jpg" />
+    <Resource Include="Assets\Posts\post5.jpg" />
+    <Resource Include="Assets\Posts\post6.jpg" />
+    <Resource Include="Assets\Posts\post7.jpg" />
+    <Resource Include="Assets\Posts\post8.jpg" />
+    <Resource Include="Assets\Posts\post9.jpg" />
+    <Resource Include="Assets\Users\user1.jpg" />
+    <Resource Include="Assets\Users\user2.jpg" />
+    <Resource Include="Assets\Users\user3.jpg" />
+    <Resource Include="Assets\Users\user4.jpg" />
+    <Resource Include="Assets\Users\user5.jpg" />
   </ItemGroup>
 
 </Project>

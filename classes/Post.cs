@@ -22,8 +22,17 @@ namespace TP2.classes
         public List<int> Love { get; set; }
         public List<int> Sad { get; set; }
         public List<int> Angry { get; set; }
-        public int Score { get; set; }  //  Value?        
+        public int Score { get { return GetScrore(); } }
 
+        private int GetScrore()
+        {
+            int Score = 0;
+            Score += Like.Count() * 3;
+            Score += Love.Count() * 5;
+            Score += Sad.Count();
+            Score += Angry.Count();
+            return Score;
+        }
 
     }
 }

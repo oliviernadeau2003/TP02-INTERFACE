@@ -23,6 +23,8 @@ namespace TP2
         public MainWindow()
         {
             InitializeComponent();
+
+            App.Current.CurrentUser = null;
         }
 
         private void Wall_Button_Click(object sender, RoutedEventArgs e)
@@ -35,6 +37,17 @@ namespace TP2
         {
             Window MarketplaceWindow = new MarketplaceWindow();
             MarketplaceWindow.Show();
+        }
+
+        private void Open_Mockup_O(object sender, RoutedEventArgs e)
+        {
+            Window MockupWindow_O = new Mockup_O.MockupWindow_O();
+            MockupWindow_O.Show();
+        }
+
+        private void Open_Mockup_V(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

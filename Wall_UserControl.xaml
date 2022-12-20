@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="TP2.Wall_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TP2"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="600">
+    <StackPanel>
+
+        <WrapPanel>
+            <Image x:Name="UserProfilePicture" Width="50"/>
+            <StackPanel>
+                <TextBlock x:Name="UserName" FontWeight="Bold"/>
+                <TextBlock x:Name="TimeSincePost"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <Image x:Name="PostContent"/>
+
+        <WrapPanel>
+            <!-- Reactions -->
+            <Button x:Name="ButtonLike">
+                <WrapPanel>
+                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/like.png" Width="20"></Image>
+                    <TextBlock x:Name="nbOfLike"/>
+                </WrapPanel>
+            </Button>
+            <Button x:Name="ButtonLove">
+                <WrapPanel>
+                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/love.png" Width="20"></Image>
+                    <TextBlock x:Name="nbOfLove"/>
+                </WrapPanel>
+            </Button>
+            <Button x:Name="ButtonSad">
+                <WrapPanel>
+                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/sad.png" Width="20"></Image>
+                    <TextBlock x:Name="nbOfSad"/>
+                </WrapPanel>
+            </Button>
+            <Button x:Name="ButtonAngry">
+                <WrapPanel>
+                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/angry.png" Width="20"></Image>
+                    <TextBlock x:Name="nbOfAngry"/>
+                </WrapPanel>
+            </Button>
+        </WrapPanel>
+
+        <TextBlock x:Name="Title" FontWeight="Bold"/>
+        <TextBlock x:Name="Date" FontWeight="ExtraLight"/>
+        <TextBlock x:Name="Description" TextWrapping="Wrap"/>
+
+    </StackPanel>
+</UserControl>
