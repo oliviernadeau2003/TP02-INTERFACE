@@ -22,5 +22,10 @@ namespace TP2.classes
             return $"{FirstName} {LastName}";
         }
 
+        public bool IsEmailAlreadyUse(string email)
+        {
+            return App.Current.Users.Values.Any(x => x.MailAddress == email);
+        }
+
     }
 }

@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="730"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
+            <StackPanel Grid.Column="0" Margin="5 5 5 5">
                 <!--Controls Column-->
                 <TextBlock Text="Logged in as"/>
                 <ComboBox x:Name="ComboBoxLoggedAs" SelectedIndex="0"/>
@@ -40,7 +40,7 @@
 
             </StackPanel>
 
-            <ScrollViewer Grid.Column="1" Height="650" Grid.ColumnSpan="2">
+            <ScrollViewer Grid.Column="1" Height="650" Grid.ColumnSpan="2" Margin="15 15 15 15">
                 <StackPanel x:Name="Feed">
                     <!--Feed-->
 

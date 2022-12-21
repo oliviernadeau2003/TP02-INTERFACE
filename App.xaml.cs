@@ -59,5 +59,20 @@ namespace TP2
         };
 
 
+        // ==============================================================================
+        // Mockup Olivier
+
+        //https://startupheretoronto.com/wp-content/uploads/2019/03/default-user-image-2.png
+
+
+
+
+
+
+        // ==============================================================================
+        // Mockup Vincent
+
+
+
     }
 }
