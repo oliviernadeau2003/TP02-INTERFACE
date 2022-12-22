@@ -5,8 +5,236 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP2.Mockup_O"
         mc:Ignorable="d"
-        Title="MockupWindow_O" Height="820" Width="1200">
-    <Grid>
-        
-    </Grid>
+        Icon="pack://application:,,,/TP2;component/Mockup-O/Assets/Icons/App-Icon.ico"
+        Background="#121212"
+        Height="800" Width="1350"
+        ResizeMode="CanResize"
+        >
+    <!--WindowStyle="None"
+        AllowsTransparency="True"-->
+    <Border CornerRadius="15">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <WrapPanel Grid.Column="0" Grid.Row="1"
+                       VerticalAlignment="Center"
+                       Margin="26,-20,0,0">
+                <Image x:Name="Logo" Margin="0,0,15,0"/>
+                <TextBlock Text="Epic Games"
+                           Foreground="White"
+                           FontSize="16"
+                           VerticalAlignment="Center"/>
+            </WrapPanel>
+
+
+            <Border Grid.Row="0" Grid.ColumnSpan="2"
+                MouseDown="Border_MouseDown"
+                Margin="3,3,3,3">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="20" Height="20"
+                            Content="−"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Click="ButtonMinimize_Click"/>
+                    <Button Width="20" Height="20"
+                            Content="▢"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="WindowStateButton_Click"/>
+                    <Button Width="20" Height="20"
+                            Content="✕"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Click="CloseButton_Click"/>
+                </StackPanel>
+            </Border>
+
+
+            <StackPanel Grid.Column="0" Grid.Row="2"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="40,10,0,0">
+                <WrapPanel x:Name="HomeWrapPanel">
+                    <Image x:Name="HomeIcon" Margin="-5,0,25,25"/>
+                    <Button x:Name="HomeButton"
+                            Click="ChangeOpacity"
+                            Content="Home"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+                <WrapPanel x:Name="StoreWrapPanel">
+                    <Image x:Name="StoreIcon" Margin="0,0,30,30"/>
+                    <Button x:Name="StoreButton"
+                            Click="ChangeOpacity"
+                            Content="Store"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+                <WrapPanel x:Name="LibraryWrapPanel">
+                    <Image x:Name="LibraryIcon" Margin="-5,0,25,25"/>
+                    <Button x:Name="LibraryButton"
+                            Click="ChangeOpacity"
+                            Content="Library"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30">
+                    </Button>
+                </WrapPanel>
+                <WrapPanel x:Name="FriendsWrapPanel">
+                    <Image x:Name="FriendsIcon" Margin="0,0,30,30"/>
+                    <Button x:Name="FriendsButton"
+                            Click="ChangeOpacity"
+                            Content="Friends"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+                <WrapPanel x:Name="UnrealEngineWrapPanel">
+                    <Image x:Name="UnrealEngineIcon" Margin="-5,0,25,25"/>
+                    <Button x:Name="UnrealEngineButton"
+                            Click="ChangeOpacity"
+                            Content="Unreal Engine"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0"
+                    Margin="40,0,0,0">
+                <WrapPanel x:Name="DownloadsWrapPanel">
+                    <Image x:Name="DownloadsIcon" Margin="0,0,30,30"/>
+                    <Button x:Name="DownloadButton"
+                            Content="Downloads"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+                <WrapPanel x:Name="SettingsWrapPanel">
+                    <Image x:Name="SettingsIcon" Margin="0,0,30,30"/>
+                    <Button x:Name="SettingsButton"
+                            Content="Settings"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+                <WrapPanel x:Name="UserWrapPanel">
+                    <Image x:Name="UserIcon" Margin="0,0,30,30"/>
+                    <Button x:Name="UserButton"
+                            Content="[Account Name]"
+                            Foreground="White"
+                            FontSize="16"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,0,30"/>
+                </WrapPanel>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                       Margin="0,35,0,0">
+                    <ComboBox x:Name="ComboBoxOrderByList"
+                              Background="Black"
+                              Foreground="Gray"
+                              BorderThickness="0"
+                              FontWeight="DemiBold"
+                              Margin="0,0,50,0">
+                        <!--<Image x:Name="ComboBoxOrderByListIcon"/>-->
+                    </ComboBox>
+                    <ComboBox x:Name="ComboBoxGenreList"
+                              Background="Black"
+                              Foreground="Gray"
+                              BorderThickness="0"
+                              FontWeight="DemiBold"
+                              Margin="50,0,0,0">
+                        <!--<Image x:Name="ComboBoxGenreListIcon"/>-->
+                    </ComboBox>
+                </WrapPanel>
+                <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                       Margin="0,-25,80,0">
+                    <RadioButton x:Name="RadioButtonCoverView"
+                                 VerticalAlignment="Center"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Margin="0,0,0,0">
+                        <Image x:Name="CoverView"/>
+                    </RadioButton>
+                    <RadioButton x:Name="RadioButtonListView"
+                                 VerticalAlignment="Center"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Margin="40,0,40,0">
+                        <Image x:Name="ListView"/>
+                    </RadioButton>
+                    <WrapPanel Background="#252525"
+                               Height="35" Width="220"
+                               VerticalAlignment="Center">
+                        <Image x:Name="SearchIcon" HorizontalAlignment="Center" Margin="8"/>
+                        <TextBox x:Name="SearhBar"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Foreground="Gray"
+                                 FontSize="15"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Text="Search">
+                        </TextBox>
+                    </WrapPanel>
+                </WrapPanel>
+            </StackPanel>
+
+
+        </Grid>
+    </Border>
+
 </Window>

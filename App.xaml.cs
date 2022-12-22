@@ -64,6 +64,29 @@ namespace TP2
 
         //https://startupheretoronto.com/wp-content/uploads/2019/03/default-user-image-2.png
 
+        public enum GameGenres
+        {
+            All,
+            Action,
+            Action_Adventure,
+            Adventure,
+            Puzzle,
+            Combat,
+            Comédie,
+            City_Building,
+            Racing,
+            Dungeon_Crawler,
+            Space
+        }
+
+        public enum OrderBy
+        {
+            Alphabetical_A_Z,
+            Alphabetical_Z_B,
+            Recently_Played,
+            Recently_Buyed,
+            Time_Played
+        }
 
 
 
