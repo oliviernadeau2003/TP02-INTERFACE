@@ -23,41 +23,124 @@ namespace TP2
         public MarketplaceWindow()
         {
             InitializeComponent();
-            OfferType.SelectedIndex = 0;
-            foreach(var auto in App.Current.Cars)
-            {
-                StackPanel newStackPanel = new StackPanel();
-                TextBlock nom = new TextBlock();
-                Image image = new Image();
-                BitmapImage bitImage = new BitmapImage( new Uri("Assets/Offers/Cars/"+ auto.Value.Image,UriKind.Relative));
-                image.Source = bitImage;
-                image.Width = 150;
-                image.Height = 150;
-                nom.Text = auto.Value.Marque;
-                newStackPanel.Width = 160;
-                newStackPanel.Height = 220;
-                SolidColorBrush gris = new SolidColorBrush();
-                gris.Color = Color.FromRgb(90, 90, 90);
-                newStackPanel.Background = gris;
-                newStackPanel.Children.Add(image);
-                newStackPanel.Children.Add(nom);
-                Feed.Children.Add(newStackPanel);
-            }
-        }
+            maker.Items.Add("All");
+            maker.Items.Add("Nissan");
+            maker.Items.Add("Toyota");
+            maker.Items.Add("Honda");
+            Brand.Items.Add("Leaf");
+            Brand.Items.Add("Yaris");
+            Brand.Items.Add("Civic");
+            Brand.Items.Add("Camry");
+            Brand.Items.Add("Infinity");
+            Brand.Items.Add("Accord");
+            Brand.Items.Add("Altima");
+            Brand.Items.Add("All");
+            rechercheCar();
+        }   
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
             
+            rechercheCar();
+
         }
 
-        private void recherche()
+        private void rechercheCar()
         {
+            IEnumerable<Car> cars = App.Current.Cars.Values;
 
+            if(int.TryParse(priceMin.Text,out int minPrice)){
+                cars = cars.Where(x => x.Price > minPrice);
+            }
+
+            if (int.TryParse(priceMax.Text, out int maxPrice)){
+                cars = cars.Where(x => x.Price < maxPrice);
+            }
+            if (maker.SelectedValue == "Nissan")
+            {
+                cars = cars.Where(x => x.Fabricants=="Nissan");
+            }
+            if (maker.SelectedValue == "Toyota")
+            {
+                cars = cars.Where(x => x.Fabricants == "Toyota");
+            }
+            if (maker.SelectedValue == "Honda")
+            {
+                cars = cars.Where(x => x.Fabricants == "Honda");
+            }
+            if(Brand.SelectedValue == "Leaf")
+            {
+                cars = cars.Where(x => x.Marque == "Leaf");
+            }
+            if (Brand.SelectedValue == "Yaris")
+            {
+                cars = cars.Where(x => x.Marque == "Yaris");
+            }
+            if (Brand.SelectedValue == "Civic")
+            {
+                cars = cars.Where(x => x.Marque == "Civic");
+            }
+            if (Brand.SelectedValue == "Camry")
+            {
+                cars = cars.Where(x => x.Marque == "Camry");
+            }
+            if (Brand.SelectedValue == "Infinity")
+            {
+                cars = cars.Where(x => x.Marque == "Infinity");
+            }
+            if (Brand.SelectedValue == "Accord")
+            {
+                cars = cars.Where(x => x.Marque == "Accord");
+            }
+            if (Brand.SelectedValue == "Altima")
+            {
+                cars = cars.Where(x => x.Marque == "Altima");
+            }
+
+            if (int.TryParse(yearMin.Text, out int minYear))
+            {
+                cars = cars.Where(x => x.Annee > minYear);
+            }
+
+            if (int.TryParse(yearMax.Text, out int maxYear))
+            {
+                cars = cars.Where(x => x.Annee < maxYear);
+            }
+
+            if (int.TryParse(mileageMin.Text, out int minMil))
+            {
+                cars = cars.Where(x => x.Odometre > minMil);
+            }
+
+            if (int.TryParse(mileageMax.Text, out int maxMil))
+            {
+                cars = cars.Where(x => x.Odometre < maxMil);
+            }
+
+            if (date.IsChecked==true)
+            {
+                cars.OrderBy(x => x.Date);
+            }
+
+            if (price.IsChecked == true)
+            {
+                cars.OrderBy(x => x.Price);
+            }
+
+            Feed.Children.Clear();
+
+            foreach (Car car in cars)
+            {
+                Market_UserControl marketCP = new Market_UserControl(car);
+                marketCP.Width = 200;
+                Feed.Children.Add(marketCP);
+            }
         }
 
         private void OfferType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
     }
 }

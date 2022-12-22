@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP2"
         mc:Ignorable="d"
-        Title="MarketplaceWindow" Height="600" Width="800">
+        Title="MarketplaceWindow" Height="600" Width="900">
     <StackPanel>
         <StackPanel Background="RoyalBlue">
             <TextBlock Foreground="white" FontWeight="DemiBold" TextAlignment="Center" FontSize="25" Margin="0 15 0 15">MARKETPLACE</TextBlock>
@@ -19,7 +19,7 @@
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 10 5 3">Category</TextBlock>
-                <ComboBox x:Name="OfferType" SelectionChanged="OfferType_SelectionChanged" Margin="5 10 5 3">
+                <ComboBox x:Name="OfferType" Margin="5 10 5 3">
                     <ComboBoxItem>Cars</ComboBoxItem>
                     <ComboBoxItem>Cars</ComboBoxItem>
                     <ComboBoxItem>Cars</ComboBoxItem>
@@ -28,52 +28,60 @@
                 
                 
                 <WrapPanel>
-                    <RadioButton Margin="5 10 5 3"></RadioButton>
-                    <TextBlock Foreground="white" Margin="9 7 0 0">Date (newest first)</TextBlock>
+                    <RadioButton x:Name="date" Margin="5 10 5 3" ></RadioButton>
+                    <TextBlock  Foreground="white" Margin="9 7 0 0">Date (newest first)</TextBlock>
                 </WrapPanel>
                 <WrapPanel>
-                    <RadioButton Margin="5 10 5 3"></RadioButton>
-                    <TextBlock Foreground="white" Margin="9 7 0 0">Price (lowest first)</TextBlock>
+                    <RadioButton x:Name="price" Margin="5 10 5 3"></RadioButton>
+                    <TextBlock  Foreground="white" Margin="9 7 0 0">Price (lowest first)</TextBlock>
                 </WrapPanel>
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Price</TextBlock>
                 <WrapPanel>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="priceMin" Margin="10 10 0 0" Width="60"></TextBox>
                     <TextBlock Foreground="White" Margin="10 11 0 0"> to </TextBlock>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="priceMax" Margin="10 10 0 0" Width="60" ></TextBox>
                 </WrapPanel>
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Maker</TextBlock>
-                <ComboBox Margin="5 10 5 3"></ComboBox>
+                <ComboBox x:Name="maker" Margin="5 10 5 3" >
+                    
+                </ComboBox>
                 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Brand</TextBlock>
-                <ComboBox Margin="5 10 5 3"></ComboBox>
+                <ComboBox x:Name="Brand"  Margin="5 10 5 3" >
+                   
+                </ComboBox>
 
                 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Year</TextBlock>
                 <WrapPanel>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="yearMin"  Margin="10 10 0 0" Width="60" ></TextBox>
                     <TextBlock Foreground="White" Margin="10 11 0 0"> to</TextBlock>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="yearMax"  Margin="10 10 0 0" Width="60" ></TextBox>
                 </WrapPanel>
 
 
                 <TextBlock Foreground="White" FontSize="12" Margin="5 5 5 3">Mileage</TextBlock>
                 <WrapPanel>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="mileageMin"  Margin="10 10 0 0" Width="60" ></TextBox>
                     <TextBlock Foreground="White" Margin="10 11 0 0"> to</TextBlock>
-                    <TextBox Margin="10 10 0 0" Width="60"></TextBox>
+                    <TextBox x:Name="mileageMax"  Margin="10 10 0 0" Width="60" ></TextBox>
                 </WrapPanel>
 
                 <Button x:Name="search" Click="search_Click" Margin="10" Height="25" Background="RoyalBlue" Foreground="White">Search</Button>
 
             </StackPanel>
-            <StackPanel Grid.Column="1" Background="#FF3E3E3E" x:Name="Feed">
-               
-            </StackPanel>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Height="520">
+                <WrapPanel Background="#FF3E3E3E" x:Name="Feed">
+
+                </WrapPanel>
+            </ScrollViewer>
+            
         </Grid>
     </StackPanel>
     

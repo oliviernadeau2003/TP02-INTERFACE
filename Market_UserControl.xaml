@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="TP2.Market_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TP2"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300">
+    <StackPanel Background="#FF272525" Margin="5">
+        <Image x:Name="ImageProduct" Source="/Assets/Offers/Cars/car1.jpg" />
+
+        <StackPanel Margin="5">
+            <WrapPanel Margin="0 10 0 5">
+                <TextBlock x:Name="TextBlockPrice" FontSize="20"  Margin="0 0 70 0" Foreground="White">$99.99</TextBlock>
+                <TextBlock x:Name="TextBlockDate" FontSize="10" Margin="0 5 0 0" Foreground="White">11-19-2021</TextBlock>
+            </WrapPanel>
+            <TextBlock x:Name="TextBlockName" 
+                       Margin="0 0 0 5"
+                       TextWrapping="Wrap"
+                       Foreground="White"
+                       FontSize="15">
+                2014 Honda Accord</TextBlock>
+            <TextBlock x:Name="TextBlockKm" FontSize="12"  Margin="0 0 140 0" Foreground="Gray">170k km</TextBlock>
+
+        </StackPanel>
+    </StackPanel>
+</UserControl>
