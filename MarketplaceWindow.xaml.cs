@@ -23,6 +23,10 @@ namespace TP2
         public MarketplaceWindow()
         {
             InitializeComponent();
+            OfferType.Items.Add("Cars");
+            OfferType.Items.Add("Appliances");
+            OfferType.Items.Add("Proprety rental");
+            OfferType.SelectedIndex = 0;
             maker.Items.Add("All");
             maker.Items.Add("Nissan");
             maker.Items.Add("Toyota");
@@ -35,14 +39,24 @@ namespace TP2
             Brand.Items.Add("Accord");
             Brand.Items.Add("Altima");
             Brand.Items.Add("All");
+            visibilityHandler();
             rechercheCar();
         }   
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            
-            rechercheCar();
 
+
+            find();
+
+        }
+        private void find()
+        {
+            Feed.Children.Clear();
+            if (OfferType.SelectedValue == "Cars")
+            {
+                rechercheCar();
+            }
         }
 
         private void rechercheCar()
@@ -127,8 +141,6 @@ namespace TP2
                 cars.OrderBy(x => x.Price);
             }
 
-            Feed.Children.Clear();
-
             foreach (Car car in cars)
             {
                 Market_UserControl marketCP = new Market_UserControl(car);
@@ -139,8 +151,94 @@ namespace TP2
 
         private void OfferType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            visibilityHandler();
         }
 
+        private void visibilityHandler()
+        {
+            if (OfferType.SelectedValue == "Cars")
+            {
+                maker.Visibility = Visibility.Visible;
+                Brand.Visibility = Visibility.Visible;
+                mileageMax.Visibility = Visibility.Visible;
+                mileageMin.Visibility = Visibility.Visible;
+                mil.Visibility = Visibility.Visible;
+                mil2.Visibility = Visibility.Visible;
+                year.Visibility = Visibility.Visible;
+                year2.Visibility = Visibility.Visible;
+                yearMax.Visibility = Visibility.Visible;
+                yearMin.Visibility = Visibility.Visible;
+                makerText.Visibility = Visibility.Visible;
+                brandText.Visibility = Visibility.Visible;
+
+                appliance.Visibility = Visibility.Collapsed;
+                applianceBrand.Visibility = Visibility.Collapsed;
+                applianceBrandText.Visibility = Visibility.Collapsed;
+                applianceText.Visibility = Visibility.Collapsed;
+
+                proprety.Visibility = Visibility.Collapsed;
+                propretyText.Visibility = Visibility.Collapsed;
+                roomstext.Visibility = Visibility.Collapsed;
+                Rooms.Visibility = Visibility.Collapsed;
+                bathroomText.Visibility = Visibility.Collapsed;
+                bath.Visibility = Visibility.Collapsed;
+            }
+            else if(OfferType.SelectedValue == "Appliances")
+            {
+                maker.Visibility = Visibility.Collapsed;
+                Brand.Visibility = Visibility.Collapsed;
+                mileageMax.Visibility = Visibility.Collapsed;
+                mileageMin.Visibility = Visibility.Collapsed;
+                mil.Visibility = Visibility.Collapsed;
+                mil2.Visibility = Visibility.Collapsed;
+                year.Visibility = Visibility.Collapsed;
+                year2.Visibility = Visibility.Collapsed;
+                yearMax.Visibility = Visibility.Collapsed;
+                yearMin.Visibility = Visibility.Collapsed;
+                makerText.Visibility = Visibility.Collapsed;
+                brandText.Visibility = Visibility.Collapsed;
+
+                appliance.Visibility = Visibility.Visible;
+                applianceBrand.Visibility = Visibility.Visible;
+                applianceBrandText.Visibility = Visibility.Visible;
+                applianceText.Visibility = Visibility.Visible;
+
+                proprety.Visibility = Visibility.Collapsed;
+                propretyText.Visibility = Visibility.Collapsed;
+                roomstext.Visibility = Visibility.Collapsed;
+                Rooms.Visibility = Visibility.Collapsed;
+                bathroomText.Visibility = Visibility.Collapsed;
+                bath.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                proprety.Visibility = Visibility.Visible;
+                propretyText.Visibility = Visibility.Visible;
+                roomstext.Visibility = Visibility.Visible;
+                Rooms.Visibility = Visibility.Visible;
+                bathroomText.Visibility = Visibility.Visible;
+                bath.Visibility = Visibility.Visible;
+
+                maker.Visibility = Visibility.Collapsed;
+                Brand.Visibility = Visibility.Collapsed;
+                mileageMax.Visibility = Visibility.Collapsed;
+                mileageMin.Visibility = Visibility.Collapsed;
+                mil.Visibility = Visibility.Collapsed;
+                mil2.Visibility = Visibility.Collapsed;
+                year.Visibility = Visibility.Collapsed;
+                year2.Visibility = Visibility.Collapsed;
+                yearMax.Visibility = Visibility.Collapsed;
+                yearMin.Visibility = Visibility.Collapsed;
+                makerText.Visibility = Visibility.Collapsed;
+                brandText.Visibility = Visibility.Collapsed;
+
+                appliance.Visibility = Visibility.Collapsed;
+                applianceBrand.Visibility = Visibility.Collapsed;
+                applianceBrandText.Visibility = Visibility.Collapsed;
+                applianceText.Visibility = Visibility.Collapsed;
+            }
+
+            find();
+        }
     }
 }
