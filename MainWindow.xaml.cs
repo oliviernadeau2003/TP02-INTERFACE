@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TP2.Mockup_O;
 
 namespace TP2
 {
@@ -47,7 +48,8 @@ namespace TP2
 
         private void Open_Mockup_V(object sender, RoutedEventArgs e)
         {
-            
+            Window MockupWindow_V = new Mockup_V.MockupWindow_V();
+            MockupWindow_V.Show();
         }
     }
 }

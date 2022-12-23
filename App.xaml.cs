@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Collections.Generic;
 using TP2.classes;
+using System.Dynamic;
 
 namespace TP2
 {
@@ -87,15 +88,16 @@ namespace TP2
             Recently_Buyed,
             Time_Played
         }
-
-
-
-
-
         // ==============================================================================
         // Mockup Vincent
 
-
+        public Dictionary<int, object> Items = new Dictionary<int, object>()
+        {
+            {1,new weapon(){Id=1,Name="iron sword",Price=20,quantite=1,strength=10,durability=5} },
+            {2,new armor(){Id=2,Name="iron boots",Price=10,quantite=1,type="boots",durability=10,strength=10} },
+            {3,new food(){Id=3,Name="bread",Price=2,quantite=2,health=2} },
+            {4,new potion(){Id=4,Name="health potion",Price=10,quantite=3,effect="regen 10 life"} }
+        };
 
     }
 }
