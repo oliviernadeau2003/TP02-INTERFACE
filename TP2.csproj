@@ -46,6 +46,7 @@
     <None Remove="Assets\Users\user4.jpg" />
     <None Remove="Assets\Users\user5.jpg" />
     <None Remove="Mockup-O\Assets\Epic_Games_logo.svg" />
+    <None Remove="Mockup-O\Assets\Icons\3Dots-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\App-Icon.ico" />
     <None Remove="Mockup-O\Assets\Icons\Downloads-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\Friends-Icon.png" />
@@ -57,6 +58,7 @@
     <None Remove="Mockup-O\Assets\Icons\Store-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\Unreal-Engine-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\User-Icon.png" />
+    <None Remove="Mockup-O\Assets\Placeholder\PlaceHolder.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -97,6 +99,7 @@
     <Resource Include="Assets\Users\user3.jpg" />
     <Resource Include="Assets\Users\user4.jpg" />
     <Resource Include="Assets\Users\user5.jpg" />
+    <Resource Include="Mockup-O\Assets\Icons\3Dots-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\App-Icon.ico" />
     <Resource Include="Mockup-O\Assets\Icons\Downloads-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\Epic_Games_logo.svg" />
@@ -109,6 +112,7 @@
     <Resource Include="Mockup-O\Assets\Icons\Store-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\Unreal-Engine-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\User-Icon.png" />
+    <Resource Include="Mockup-O\Assets\Placeholder\PlaceHolder.png" />
   </ItemGroup>
 
 </Project>

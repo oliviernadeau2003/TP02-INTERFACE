@@ -3,11 +3,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using TP2.classes;
+using TP2.Mockup_O.Classes;
 
 namespace TP2.Mockup_O
 {
@@ -20,21 +22,56 @@ namespace TP2.Mockup_O
 
         public MockupWindow_O()
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            moUser moUser = App.Current.moUsers[0];
+            App.Current.moCurrentUser = moUser;
+            App.Current.moCurrentUserId = App.Current.Users.FirstOrDefault(x => x.Value == App.Current.CurrentUser).Key;
 
             LoadIcons();
             LoadFilters();
             SetOpacity();
             Navigations_Buttons = LoadButton_list();
             RadioButtonListView.IsChecked = true;
+            UserButton.Content = App.Current.moCurrentUser.Username;
 
 
             // Events Calls
+            RadioButtonCoverView.Checked += RadioButtonCoverView_Checked;
+            RadioButtonListView.Checked += RadioButtonListView_Checked;
 
+            LoadGames();
         }
 
         // Events Functions
+
+        private void ComboBoxOrderByList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void ComboBoxGenreList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void SearhBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void RadioButtonListView_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButtonListView.Opacity = 1;
+            RadioButtonCoverView.Opacity = 0.5;
+        }
+
+        private void RadioButtonCoverView_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButtonCoverView.Opacity = 1;
+            RadioButtonListView.Opacity = 0.5;
+        }
+
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -64,8 +101,11 @@ namespace TP2.Mockup_O
 
         // ------------------------
 
-
-
+        private void Update()
+        {
+            ProductsList?.Children.Clear();
+            LoadGames();
+        }
 
 
         private void LoadIcons()
@@ -125,7 +165,8 @@ namespace TP2.Mockup_O
 
         private void LoadFilters()
         {
-            foreach (var Genre in Enum.GetNames(typeof(App.GameGenres)))
+            ComboBoxGenreList.Items.Add("All");
+            foreach (var Genre in Enum.GetNames(typeof(App.ProductGenres)))
                 ComboBoxGenreList.Items.Add(EnumParsing(Genre));
             foreach (var OrderBy in Enum.GetNames(typeof(App.OrderBy)))
                 ComboBoxOrderByList.Items.Add(EnumParsing(OrderBy));
@@ -135,6 +176,7 @@ namespace TP2.Mockup_O
         }
 
         private string EnumParsing(string @enum) => @enum.Replace('_', ' ');
+        private App.ProductGenres StringParsingToEnum(string @enum) => (App.ProductGenres)Enum.Parse(typeof(App.ProductGenres), @enum.Replace(' ', '_'));
 
         private void SetOpacity()
         {
@@ -162,6 +204,51 @@ namespace TP2.Mockup_O
         }
 
         private List<Button> LoadButton_list() => new() { HomeButton, StoreButton, LibraryButton, FriendsButton, UnrealEngineButton/*, DownloadButton, SettingsButton, UserButton*/ };
+
+        private void LoadGames()
+        {
+            IEnumerable<Product> products = App.Current.Products.Values;
+
+            products = Search(products);
+            products = FilterByOrder(products);
+            products = FilterByGenres(products);
+
+            foreach (Product product in products)
+            {
+                ListViewUserControl listViewUserControl = new ListViewUserControl(product, this);
+                ProductsList?.Children.Add(listViewUserControl);
+            }
+        }
+
+        private IEnumerable<Product> FilterByOrder(IEnumerable<Product> products)
+        {
+            if (ComboBoxOrderByList.SelectedItem?.ToString() == EnumParsing(App.OrderBy.Alphabetical_A_Z.ToString()))
+                products = products.OrderBy(x => x.Name).ThenBy(x => x.Size);
+            if (ComboBoxOrderByList.SelectedItem?.ToString() == EnumParsing(App.OrderBy.Alphabetical_Z_A.ToString()))
+                products = products.OrderByDescending(x => x.Name).ThenByDescending(x => x.Size); ;
+            if (ComboBoxOrderByList.SelectedItem?.ToString() == EnumParsing(App.OrderBy.Size_ASC.ToString()))
+                products = products.OrderBy(x => x.Size).ThenBy(x => x.Name);
+            if (ComboBoxOrderByList.SelectedItem?.ToString() == EnumParsing(App.OrderBy.Size_DESC.ToString()))
+                products = products.OrderByDescending(x => x.Size).ThenByDescending(x => x.Name);
+
+            return products;
+        }
+
+        private IEnumerable<Product> FilterByGenres(IEnumerable<Product> products)
+        {
+            if (ComboBoxGenreList.SelectedItem is not null && ComboBoxGenreList.SelectedItem.ToString() != "All")
+            {
+                App.ProductGenres SelectedGenre = StringParsingToEnum(ComboBoxGenreList.SelectedItem?.ToString());
+                products = products.Where(x => x.Genres.Contains(SelectedGenre));
+            }
+            return products;
+        }
+
+        private IEnumerable<Product> Search(IEnumerable<Product> products)
+        {
+
+            return products;
+        }
 
     }
 }

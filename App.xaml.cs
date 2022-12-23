@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Collections.Generic;
 using TP2.classes;
+using TP2.Mockup_O.Classes;
+using System.Xml.Linq;
 
 namespace TP2
 {
@@ -64,9 +66,13 @@ namespace TP2
 
         //https://startupheretoronto.com/wp-content/uploads/2019/03/default-user-image-2.png
 
-        public enum GameGenres
+        public moUser? moCurrentUser;
+        public int moCurrentUserId;
+
+        public enum ProductGenres
         {
-            All,
+            Game_Engine,
+            Battle_Royal,
             Action,
             Action_Adventure,
             Adventure,
@@ -76,19 +82,71 @@ namespace TP2
             City_Building,
             Racing,
             Dungeon_Crawler,
-            Space
+            Space,
+            Survival,
+            Modding
         }
 
         public enum OrderBy
         {
             Alphabetical_A_Z,
-            Alphabetical_Z_B,
-            Recently_Played,
-            Recently_Buyed,
-            Time_Played
+            Alphabetical_Z_A,
+            Size_ASC,
+            Size_DESC
+            //Recently_Played,
+            //Recently_Buyed,
+            //Time_Played
         }
 
+        public enum States
+        {
+            Install,
+            Launch,
+            Installing,
+            Unavailable
+        }
 
+        public Dictionary<int, moUser> moUsers = new Dictionary<int, moUser>()
+        {
+            {0,new moUser(){ Username="ProofPotato",FirstName="Dean",LastName="Laurence",MailAddresse="DeanLaurence@gmail.com",Password="t3oe81z2gl10",FriendsIds=new List<int>(){ } }},
+            {1,new moUser(){ Username="PlushJontel",FirstName="Jon",LastName="Alfreda",MailAddresse="JonAlfreda@gmail.com",Password="6UMWCJmP7tWe",FriendsIds=new List<int>(){ } }},
+            {2,new moUser(){ Username="BrightEffemy",FirstName="Emilly",LastName="Bell",MailAddresse="EmillyBell@hotmail.com",Password="NJjpLKTC9kob",FriendsIds=new List<int>(){ } }},
+            {3,new moUser(){ Username="DeltaryaTart",FirstName="Heidi",LastName="Combs",MailAddresse="HeidiCombs@gmail.com",Password="z71PHikL5i3b",FriendsIds=new List<int>(){ } }},
+            {4,new moUser(){ Username="EagerlyStar",FirstName="Gary",LastName="Armstrong",MailAddresse="GaryArmstrong@hotmail.com",Password="sURN1rpU1eDN",FriendsIds=new List<int>(){ } }},
+            {5,new moUser(){ Username="RespondCasaba",FirstName="Mike",LastName="Hanson",MailAddresse="MikeHanson@hotmail.com",Password="qe8kZ4pP7KGU",FriendsIds=new List<int>(){ } }},
+            {6,new moUser(){ Username="SlugBravo",FirstName="Tyler",LastName="Mclean",MailAddresse="TylerMclean@gmail.com",Password="ltKFq9aHfpsg",FriendsIds=new List<int>(){ } }},
+            {7,new moUser(){ Username="CurveTanzilla",FirstName="Jordanne",LastName="Turner",MailAddresse="JordanneTurner@hotmail.com",Password="0wjk5XzwImB0",FriendsIds=new List<int>(){ } }},
+            {8,new moUser(){ Username="BuoyantThin",FirstName="Jessie",LastName="Henry",MailAddresse="JessieHenry@gmail.com",Password="M9q8yglVfYtN",FriendsIds=new List<int>(){ } }},
+            {9,new moUser(){ Username="ThuliumRubidium",FirstName="Kristina",LastName="Kidd",MailAddresse="KristinaKidd@hotmail.com",Password="a1gfb3rkLDMt",FriendsIds=new List<int>(){ } }},
+        };
+
+
+        public Dictionary<int, Product> Products = new Dictionary<int, Product>()
+        {
+            { 0, new Game(){ Name="City of Brass",State=States.Installing,Size=80,Genres = new List<ProductGenres>(){ ProductGenres.Action } }},
+            { 1, new Game(){ Name="Alan Wake",State=States.Launch,Size=50,Genres = new List<ProductGenres>(){ ProductGenres.Combat } }},
+            { 2, new Game(){ Name="Hades",State=States.Launch,Size=28,Genres = new List<ProductGenres>(){ ProductGenres.Combat } }},
+            { 3, new Game(){ Name="Fortnite",State=States.Launch,Size=79,Genres = new List<ProductGenres>(){ ProductGenres.Battle_Royal } }},
+            { 4, new Engine(){ Name="Unreal Engine",State=States.Launch,Size=40,PrimaryLanguage="C++",Developpers=new List<string>() { "Epic Games" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+            { 5, new Game(){ Name="Borderlands 3",State=States.Installing,Size=47,Genres = new List<ProductGenres>(){ ProductGenres.Combat } }},
+            { 6, new Game(){ Name="ABZU",State=States.Launch,Size=28,Genres = new List<ProductGenres>(){ ProductGenres.Adventure } }},
+            { 7, new Game(){ Name="Griftlands",State=States.Launch,Size=37,Genres = new List<ProductGenres>(){ ProductGenres.Puzzle } }},
+            { 8, new Game(){ Name="Watch Dogs 1",State=States.Install,Size=35,Genres = new List<ProductGenres>(){ ProductGenres.Dungeon_Crawler } }},
+            { 9, new Engine(){ Name="Qfusion",State=States.Installing,Size= 27,PrimaryLanguage="C",Developpers=new List<string>() { "Victor Luchitz" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+            { 10, new Game(){ Name="Watch Dogs 2",State=States.Install,Size=54,Genres = new List<ProductGenres>(){ ProductGenres.Dungeon_Crawler } }},
+            { 11, new Game(){ Name="Watch Dogs 3",State=States.Install,Size=62,Genres = new List<ProductGenres>(){ ProductGenres.Dungeon_Crawler } }},
+            { 12, new Engine(){ Name="Panda3D",State=States.Launch,Size=34,PrimaryLanguage="Python",Developpers=new List<string>() { "Disney Interactive" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+            { 13, new Game(){ Name="Tom Clancy's The Division 1",State=States.Installing,Size=24,Genres = new List<ProductGenres>(){ ProductGenres.Action,ProductGenres.Combat } }},
+            { 14, new Engine(){ Name="Snowdrop",State=States.Launch,Size=9,PrimaryLanguage="",Developpers=new List<string>() { "Massive Entertainment","Ubisoft" }}},
+            { 15, new Game(){ Name="Tom Clancy's The Division 2",State=States.Installing,Size=38,Genres = new List<ProductGenres>(){ ProductGenres.Action,ProductGenres.Combat } }},
+            { 16, new Game(){ Name="Metro Exodus",State=States.Install,Size=72,Genres = new List<ProductGenres>(){ ProductGenres.Action } }},
+            { 17, new Game(){ Name="Afterparty Pre-Purchase",State=States.Unavailable,Size=12,Genres = new List<ProductGenres>(){ ProductGenres.Action } }},
+            { 18, new Game(){ Name="Ark Editor",State=States.Install,Size=24,Genres = new List<ProductGenres>(){ ProductGenres.Modding } }},
+            { 19, new Engine(){ Name="Blender Game Engine",State=States.Install,Size=84,PrimaryLanguage="C++",Developpers=new List<string>() { "Blender Foundation" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+            { 20, new Game(){ Name="Ark Survival Evolved",State=States.Installing,Size=127,Genres = new List<ProductGenres>(){ ProductGenres.Adventure,ProductGenres.Survival } }},
+            { 21, new Engine(){ Name="Unity",State=States.Launch,Size=4,PrimaryLanguage="C#",Developpers=new List<string>() { "Unity Technologies" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+            { 22, new Engine(){ Name="Dark Engine",State=States.Unavailable,Size=0,PrimaryLanguage="C++",Developpers=new List<string>() { "Looking Glass Studios","Irrational Games" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
+        };
 
 
 

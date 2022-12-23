@@ -9,9 +9,19 @@
         Background="#121212"
         Height="800" Width="1350"
         ResizeMode="CanResize"
+        
         >
     <!--WindowStyle="None"
         AllowsTransparency="True"-->
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Themes/ScrollbarStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>    
+    
     <Border CornerRadius="15">
         <Grid>
             <Grid.RowDefinitions>
@@ -21,7 +31,7 @@
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition  Width="300"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -179,7 +189,6 @@
                 </WrapPanel>
             </StackPanel>
 
-
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
                 <WrapPanel VerticalAlignment="Bottom" HorizontalAlignment="Left"
                        Margin="0,35,0,0">
@@ -188,7 +197,8 @@
                               Foreground="Gray"
                               BorderThickness="0"
                               FontWeight="DemiBold"
-                              Margin="0,0,50,0">
+                              Margin="0,0,50,0"
+                              SelectionChanged="ComboBoxOrderByList_SelectionChanged">
                         <!--<Image x:Name="ComboBoxOrderByListIcon"/>-->
                     </ComboBox>
                     <ComboBox x:Name="ComboBoxGenreList"
@@ -196,7 +206,8 @@
                               Foreground="Gray"
                               BorderThickness="0"
                               FontWeight="DemiBold"
-                              Margin="50,0,0,0">
+                              Margin="50,0,0,0"
+                              SelectionChanged="ComboBoxGenreList_SelectionChanged">
                         <!--<Image x:Name="ComboBoxGenreListIcon"/>-->
                     </ComboBox>
                 </WrapPanel>
@@ -227,11 +238,20 @@
                                  FontSize="15"
                                  Background="Transparent"
                                  BorderThickness="0"
-                                 Text="Search">
+                                 Text="Search"
+                                 TextChanged="SearhBar_TextChanged">
                         </TextBox>
                     </WrapPanel>
                 </WrapPanel>
             </StackPanel>
+
+            <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
+                <StackPanel x:Name="ProductsList"
+                            Margin="0,0,80,0">
+                    <!--ProductList-->
+                    
+                </StackPanel>
+            </ScrollViewer>
 
 
         </Grid>

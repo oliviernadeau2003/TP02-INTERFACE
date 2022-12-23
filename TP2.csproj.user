@@ -10,6 +10,9 @@
     <Compile Update="MarketplaceWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Mockup-O\ListViewUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Mockup-O\MockupWindow-O.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,7 +30,13 @@
     <Page Update="MarketplaceWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Mockup-O\ListViewUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Mockup-O\MockupWindow-O.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Mockup-O\Themes\ScrollbarStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WallWindow.xaml">
