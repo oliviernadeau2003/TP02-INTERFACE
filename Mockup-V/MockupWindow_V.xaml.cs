@@ -17,6 +17,7 @@ namespace TP2.Mockup_V
 {
     /// <summary>
     /// Logique d'interaction pour MockupWindow_V.xaml
+    /// https://www.deviantart.com/sirbrownie/art/Zelda-Fan-Game-Platformer-INV-Mockup-475829684
     /// </summary>
     public partial class MockupWindow_V : Window
     {
@@ -30,10 +31,18 @@ namespace TP2.Mockup_V
             feed.Children.Clear();
 
             IEnumerable<Object> item = App.Current.Items.Values;
+            IEnumerable<armor> armorList = item.OfType<armor>();
 
-            item = item.OfType<armor>();
+            if (orderByQuantity.IsChecked == true)
+            {
+                armorList = armorList.OrderBy(l => l.quantite);
+            }
+            if (weight.IsChecked == true)
+            {
+                armorList = armorList.Where(l => l.weight < 10);
+            }
 
-            foreach (armor armor in item)
+            foreach (armor armor in armorList)
             {
                 itemControl itemCp = new itemControl(armor);
                 itemCp.Width = 50;
@@ -48,9 +57,20 @@ namespace TP2.Mockup_V
 
             IEnumerable<Object> item = App.Current.Items.Values;
 
-            item = item.OfType<weapon>();
+            IEnumerable<weapon> weaponList = item.OfType<weapon>();
 
-            foreach (weapon weapon in item)
+            if (orderByQuantity.IsChecked == true)
+            {
+                weaponList = weaponList.OrderBy(l => l.quantite);
+            }
+            if (weight.IsChecked == true)
+            {
+                weaponList = weaponList.Where(l => l.weight < 10);
+            }
+
+   
+
+            foreach (weapon weapon in weaponList)
             {
                 itemControl itemCp = new itemControl(weapon);
                 itemCp.Width = 50;
@@ -64,9 +84,20 @@ namespace TP2.Mockup_V
 
             IEnumerable<Object> item = App.Current.Items.Values;
 
-            item = item.OfType<food>();
+            IEnumerable<food> foodList = item.OfType<food>();
 
-            foreach (food food in item)
+            if (orderByQuantity.IsChecked == true)
+            {
+                foodList = foodList.OrderBy(l => l.quantite);
+            }
+            if (weight.IsChecked == true)
+            {
+                foodList= foodList.Where(l => l.weight < 10);
+            }
+
+
+
+            foreach (food food in foodList)
             {
                 itemControl itemCp = new itemControl(food);
                 itemCp.Width = 50;
@@ -80,9 +111,18 @@ namespace TP2.Mockup_V
 
             IEnumerable<Object> item = App.Current.Items.Values;
 
-            item = item.OfType<potion>();
+            IEnumerable<potion> potionList = item.OfType<potion>();
 
-            foreach (potion potion in item)
+            if (orderByQuantity.IsChecked == true)
+            {
+                potionList = potionList.OrderBy(l => l.quantite);
+            }
+            if (weight.IsChecked == true)
+            {
+                potionList = potionList.Where(l => l.weight < 10);
+            }
+
+            foreach (potion potion in potionList)
             {
                 itemControl itemCp = new itemControl(potion);
                 itemCp.Width = 50;
@@ -94,6 +134,7 @@ namespace TP2.Mockup_V
         {
             feed.Children.Clear();
             IEnumerable<Object> item = App.Current.Items.Values;
+          
             foreach (item items in item)
             {
                 itemControl itemCp = new itemControl(items);
@@ -101,5 +142,7 @@ namespace TP2.Mockup_V
                 feed.Children.Add(itemCp);
             }
         }
+
+     
     }
 }

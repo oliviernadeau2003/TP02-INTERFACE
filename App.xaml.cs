@@ -93,10 +93,14 @@ namespace TP2
 
         public Dictionary<int, object> Items = new Dictionary<int, object>()
         {
-            {1,new weapon(){Id=1,Name="iron sword",Price=20,quantite=1,strength=10,durability=5} },
-            {2,new armor(){Id=2,Name="iron boots",Price=10,quantite=1,type="boots",durability=10,strength=10} },
-            {3,new food(){Id=3,Name="bread",Price=2,quantite=2,health=2} },
-            {4,new potion(){Id=4,Name="health potion",Price=10,quantite=3,effect="regen 10 life"} }
+            {1,new weapon(){Id=1,Name="iron sword",Price=20,quantite=1,strength=10,durability=5,weight=10,img="sword.png"} },
+            {2,new armor(){Id=2,Name="iron boots",Price=10,quantite=1,type="boots",durability=10,strength=10,weight=15,img="boots.png"} },
+            {3,new food(){Id=3,Name="bread",Price=2,quantite=2,health=2,weight=1,img="breand.png"} },
+            {4,new potion(){Id=4,Name="health potion",Price=10,quantite=3,effect="regen 10 life",weight=1,img="potion1.png"} },
+            {5,new potion(){Id=5,Name="strength potion",Price=15,quantite=2,effect="+10 strength for 1 minute",weight=2,img="potion3.png"} },
+            {6,new weapon(){Id=6,Name="diamond sword",Price=50,quantite=1,strength=30,durability=100,weight=15,img="sword.png"} },
+            {7,new armor(){Id=7,Name="chestplate",Price=50,quantite=1,type="chest",durability=30,strength=30 ,weight=30,img="chest.png" } },
+            {8,new food(){Id=8,Name="cake",Price=20,quantite=4,health=30,weight=5,img="cake.png" } }
         };
 
     }

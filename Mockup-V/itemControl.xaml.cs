@@ -26,7 +26,7 @@ namespace TP2.Mockup_V
         {
             InitializeComponent();
             Item = item;
-            Uri link = new Uri("../Assets/Item" + item.img, UriKind.Relative);
+            Uri link = new Uri("../Assets/items/" + item.img, UriKind.Relative);
             ImageProduct.Source = new BitmapImage(link);
             quantite.Text = item.quantite.ToString();
         }

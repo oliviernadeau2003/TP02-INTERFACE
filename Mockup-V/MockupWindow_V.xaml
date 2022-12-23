@@ -25,6 +25,10 @@
             <Button Margin="0 0 10 0" Click="Button_Click_2">potions</Button>
                 <Button Margin="0 0 10 0" Click="Button_Click_3">all</Button>
             </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <ToggleButton x:Name="orderByQuantity">orderByQuantity</ToggleButton>
+                <ToggleButton x:Name="weight">remove Heavy</ToggleButton>
+            </WrapPanel>
         </StackPanel>
         <WrapPanel Grid.Row="2" x:Name="feed" Background="Gray">
             
