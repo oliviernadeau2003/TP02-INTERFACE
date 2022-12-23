@@ -38,9 +38,10 @@ namespace TP2.Mockup_O
             if (Product.State == App.States.Installing)
             {
                 ProductDownloadProgressBar.Visibility = Visibility.Visible;
-                ProductDownloadProgressBar.Value = (Double)new Random().Next(0,100);
+                ProductDownloadProgressBar.Value = (Double)new Random().Next(0, 100);
                 ProductState.Text = $"Installing {ProductDownloadProgressBar.Value}%";
-            } else
+            }
+            else
             {
                 ProductDownloadProgressBar.Visibility = Visibility.Collapsed;
                 ProductState.Text = Product.State.ToString();
@@ -61,9 +62,27 @@ namespace TP2.Mockup_O
             ProductImage.Width = 96;
             ProductImage.Height = 54;
 
-            ProductInteractButtonImage.Source = new BitmapImage(
-            new Uri($"pack://application:,,,/TP2;component/Mockup-O/Assets/Icons/3Dots-Icon.png"));
-            ProductInteractButtonImage.Width = 25;
+            if (Product.State == App.States.Launch)
+            {
+                ProductInteractButtonImage.Source = new BitmapImage(
+                new Uri($"pack://application:,,,/TP2;component/Mockup-O/Assets/Icons/X-Icon.png"));
+                ProductInteractButtonImage.Width = 15;
+            }
+            else
+            {
+                ProductInteractButtonImage.Source = new BitmapImage(
+                new Uri($"pack://application:,,,/TP2;component/Mockup-O/Assets/Icons/3Dots-Icon.png"));
+                ProductInteractButtonImage.Width = 25;
+            }
+        }
+
+        private void ProductInteractButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to remove this game from your library?", "Warning",MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                App.Current.Products.Remove(App.Current.Products.FirstOrDefault(x => x.Value == Product).Key);
+                MockupWindow.Update();
+            }    
         }
     }
 }

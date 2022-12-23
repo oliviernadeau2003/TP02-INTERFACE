@@ -77,7 +77,6 @@ namespace TP2.Mockup_O
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 this.DragMove();
-            //Window.GetWindow(this).DragMove();
         }
 
         private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
@@ -101,7 +100,7 @@ namespace TP2.Mockup_O
 
         // ------------------------
 
-        private void Update()
+        public void Update()
         {
             ProductsList?.Children.Clear();
             LoadGames();
@@ -246,7 +245,8 @@ namespace TP2.Mockup_O
 
         private IEnumerable<Product> Search(IEnumerable<Product> products)
         {
-
+            if (SearhBar.Text != "Search")
+                return products.Where(x => x.Name.Contains(SearhBar.Text));
             return products;
         }
 

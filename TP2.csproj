@@ -66,6 +66,7 @@
     <None Remove="Mockup-O\Assets\Icons\Store-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\Unreal-Engine-Icon.png" />
     <None Remove="Mockup-O\Assets\Icons\User-Icon.png" />
+    <None Remove="Mockup-O\Assets\Icons\X-Icon.png" />
     <None Remove="Mockup-O\Assets\Placeholder\PlaceHolder.png" />
   </ItemGroup>
 
@@ -128,6 +129,7 @@
     <Resource Include="Mockup-O\Assets\Icons\Store-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\Unreal-Engine-Icon.png" />
     <Resource Include="Mockup-O\Assets\Icons\User-Icon.png" />
+    <Resource Include="Mockup-O\Assets\Icons\X-Icon.png" />
     <Resource Include="Mockup-O\Assets\Placeholder\PlaceHolder.png" />
   </ItemGroup>
 

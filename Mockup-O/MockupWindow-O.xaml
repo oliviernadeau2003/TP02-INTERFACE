@@ -8,11 +8,9 @@
         Icon="pack://application:,,,/TP2;component/Mockup-O/Assets/Icons/App-Icon.ico"
         Background="#121212"
         Height="800" Width="1350"
-        ResizeMode="CanResize"
-        
-        >
-    <!--WindowStyle="None"
-        AllowsTransparency="True"-->
+        ResizeMode="CanResize">
+        <!--WindowStyle="None"-->
+        <!--AllowsTransparency="True"-->        
 
     <Window.Resources>
         <ResourceDictionary>
@@ -20,8 +18,8 @@
                 <ResourceDictionary Source="./Themes/ScrollbarStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Window.Resources>    
-    
+    </Window.Resources>
+
     <Border CornerRadius="15">
         <Grid>
             <Grid.RowDefinitions>
@@ -249,7 +247,7 @@
                 <StackPanel x:Name="ProductsList"
                             Margin="0,0,80,0">
                     <!--ProductList-->
-                    
+
                 </StackPanel>
             </ScrollViewer>
 

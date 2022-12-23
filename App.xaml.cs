@@ -65,8 +65,6 @@ namespace TP2
         // ==============================================================================
         // Mockup Olivier
 
-        //https://startupheretoronto.com/wp-content/uploads/2019/03/default-user-image-2.png
-
         public moUser? moCurrentUser;
         public int moCurrentUserId;
 
@@ -148,7 +146,6 @@ namespace TP2
             { 21, new Engine(){ Name="Unity",State=States.Launch,Size=4,PrimaryLanguage="C#",Developpers=new List<string>() { "Unity Technologies" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
             { 22, new Engine(){ Name="Dark Engine",State=States.Unavailable,Size=0,PrimaryLanguage="C++",Developpers=new List<string>() { "Looking Glass Studios","Irrational Games" },Genres = new List<ProductGenres>() { ProductGenres.Game_Engine }}},
         };
-
 
 
         // ==============================================================================

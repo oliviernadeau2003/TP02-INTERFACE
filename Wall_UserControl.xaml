@@ -6,49 +6,69 @@
              xmlns:local="clr-namespace:TP2"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="600">
-    <StackPanel>
+    <Border BorderBrush="Black"
+            BorderThickness="0.5"
+            Padding="5"
+            Background="#252525"
+            Margin="0,5,0,5">
 
-        <WrapPanel>
-            <Image x:Name="UserProfilePicture" Width="50"/>
-            <StackPanel>
-                <TextBlock x:Name="UserName" FontWeight="Bold"/>
-                <TextBlock x:Name="TimeSincePost"/>
-            </StackPanel>
-        </WrapPanel>
+        <StackPanel>
+            <WrapPanel>
+                <Image x:Name="UserProfilePicture" Width="50" Margin="5,5,5,5"/>
+                <StackPanel Margin="0,12,0,0">
+                    <TextBlock x:Name="UserName" FontWeight="Bold" Margin="5,0,5,0"/>
+                    <TextBlock x:Name="TimeSincePost" Margin="5,0,5,0"/>
+                </StackPanel>
+            </WrapPanel>
 
-        <Image x:Name="PostContent"/>
+            <Image x:Name="PostContent"/>
 
-        <WrapPanel>
-            <!-- Reactions -->
-            <Button x:Name="ButtonLike">
-                <WrapPanel>
-                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/like.png" Width="20"></Image>
-                    <TextBlock x:Name="nbOfLike"/>
-                </WrapPanel>
-            </Button>
-            <Button x:Name="ButtonLove">
-                <WrapPanel>
-                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/love.png" Width="20"></Image>
-                    <TextBlock x:Name="nbOfLove"/>
-                </WrapPanel>
-            </Button>
-            <Button x:Name="ButtonSad">
-                <WrapPanel>
-                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/sad.png" Width="20"></Image>
-                    <TextBlock x:Name="nbOfSad"/>
-                </WrapPanel>
-            </Button>
-            <Button x:Name="ButtonAngry">
-                <WrapPanel>
-                    <Image Source="pack://application:,,,/TP2;component/Assets/Icons/angry.png" Width="20"></Image>
-                    <TextBlock x:Name="nbOfAngry"/>
-                </WrapPanel>
-            </Button>
-        </WrapPanel>
+            <WrapPanel Margin="0,5,0,2">
+                <!-- Reactions -->
+                <Border BorderBrush="White" BorderThickness="0.1" CornerRadius="5" Margin="0,0,10,0">
+                    <Button x:Name="ButtonLike" Margin="5,5,5,5" Width="45" Height="26" Background="Transparent" Foreground="White" BorderThickness="0">
+                        <WrapPanel>
+                            <Image Source="pack://application:,,,/TP2;component/Assets/Icons/like.png" Width="25"></Image>
+                            <TextBlock x:Name="nbOfLike"/>
+                        </WrapPanel>
+                    </Button>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="0.1" CornerRadius="5" Margin="0,0,10,0">
+                    <Button x:Name="ButtonLove" Margin="5,5,5,5" Width="45" Height="26" Background="Transparent" Foreground="White" BorderThickness="0">
+                        <WrapPanel>
+                            <Image Source="pack://application:,,,/TP2;component/Assets/Icons/love.png" Width="25"></Image>
+                            <TextBlock x:Name="nbOfLove"/>
+                        </WrapPanel>
+                    </Button>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="0.1" CornerRadius="5" Margin="0,0,10,0">
+                    <Button x:Name="ButtonSad" Margin="5,5,5,5" Width="45" Height="26" Background="Transparent" Foreground="White" BorderThickness="0">
+                        <WrapPanel>
+                            <Image Source="pack://application:,,,/TP2;component/Assets/Icons/sad.png" Width="25"></Image>
+                            <TextBlock x:Name="nbOfSad"/>
+                        </WrapPanel>
+                    </Button>
+                </Border>
+                <Border BorderBrush="White" BorderThickness="0.1" CornerRadius="5" Margin="0,0,10,0">
+                    <Button x:Name="ButtonAngry" Margin="5,5,5,5" Width="45" Height="26" Background="Transparent" Foreground="White" BorderThickness="0">
+                        <WrapPanel>
+                            <Image Source="pack://application:,,,/TP2;component/Assets/Icons/angry.png" Width="25"></Image>
+                            <TextBlock x:Name="nbOfAngry"/>
+                        </WrapPanel>
+                    </Button>
+                </Border>
+            </WrapPanel>
 
-        <TextBlock x:Name="Title" FontWeight="Bold"/>
-        <TextBlock x:Name="Date" FontWeight="ExtraLight"/>
-        <TextBlock x:Name="Description" TextWrapping="Wrap"/>
+            <Border BorderBrush="White" BorderThickness="0.1" CornerRadius="5" Padding="8" Margin="0,5,0,10">
+                <StackPanel>
+                    <StackPanel Margin="0,0,0,10">
+                        <TextBlock x:Name="Title" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="Date" FontWeight="ExtraLight"/>
+                    </StackPanel>
+                    <TextBlock x:Name="Description" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
 
-    </StackPanel>
+    </Border>
 </UserControl>

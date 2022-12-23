@@ -61,7 +61,8 @@
                 <Button x:Name="ProductInteractButton" Grid.Column="5"
                         Background="Transparent"
                         BorderThickness="0"
-                        Width="25" Height="25">
+                        Width="25" Height="25"
+                        Click="ProductInteractButton_Click">
                     <Image x:Name="ProductInteractButtonImage"/>
                 </Button>
 

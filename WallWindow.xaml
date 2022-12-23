@@ -5,44 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP2"
         mc:Ignorable="d"
+        Foreground="White"
         Title="WallWindow" Height="800" Width="1025">
-    <StackPanel>
+    <StackPanel Background="#252525">
 
         <TextBlock Background="#3C5588" TextAlignment="Center" Foreground="White" Padding="0 24 0 24" VerticalAlignment="Center" FontSize="25" FontWeight="Bold">WALL</TextBlock>
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"></ColumnDefinition>
-                <ColumnDefinition Width="43"></ColumnDefinition>
+                <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="730"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <StackPanel Grid.Column="0" Margin="5 5 5 5">
-                <!--Controls Column-->
-                <TextBlock Text="Logged in as"/>
-                <ComboBox x:Name="ComboBoxLoggedAs" SelectedIndex="0"/>
+            <Border BorderThickness="0" Padding="5">
+                <StackPanel Grid.Column="0" Margin="5 5 5 5">
+                    <!--Controls Column-->
+                    <TextBlock Text="Logged in as" Margin="0,5,0,5"/>
+                    <ComboBox x:Name="ComboBoxLoggedAs" SelectedIndex="0"/>
 
-                <StackPanel Margin="5">
-                    <WrapPanel>
-                        <Image x:Name="UserProfilePicture" Width="50" VerticalAlignment="Center"/>
-                        <TextBlock x:Name="UserName" FontWeight="Bold" VerticalAlignment="Center"/>
-                    </WrapPanel>
+                    <StackPanel Background="#353535" Margin="0,5,0,5">
+                        <WrapPanel>
+                            <Image x:Name="UserProfilePicture" Width="50" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="UserName" FontWeight="Bold" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        </WrapPanel>
 
-                    <TextBlock Text="Friends"/>
-                    <ListBox x:Name="ListBoxFriendsList" SelectedIndex="0"/>
+                        <StackPanel>
+                            <TextBlock Text="Friends" Margin="0,5,0,5"/>
+                            <ListBox x:Name="ListBoxFriendsList" SelectedIndex="0" Margin="0,5,0,5"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Text="View posts of" Margin="0,5,0,5"/>
+                    <ComboBox x:Name="ComboBoxUserList" SelectedIndex="0" Margin="0,5,0,5"/>
+
+
+                    <TextBlock Text="Sort by" Margin="0,5,0,5"/>
+                    <RadioButton x:Name="RadioButtonSortByDate" Content="Date (newest first)" IsChecked="True" Foreground="White" Margin="0,5,0,5"/>
+                    <RadioButton x:Name="RadioButtonSortByPopularity" Content="Popularity (highest first)" Foreground="White" Margin="0,5,0,5"/>
+
                 </StackPanel>
+            </Border>
 
-                <TextBlock Text="View posts of"/>
-                <ComboBox x:Name="ComboBoxUserList" SelectedIndex="0"/>
-
-
-                <TextBlock Text="Sort by"/>
-                <RadioButton x:Name="RadioButtonSortByDate" Content="Date (newest first)" IsChecked="True"/>
-                <RadioButton x:Name="RadioButtonSortByPopularity" Content="Popularity (highest first)"/>
-
-            </StackPanel>
-
-
+            <Border Grid.Column="2" Grid.RowSpan="2" Background="#353535"></Border>
             <ScrollViewer Grid.Column="1" Grid.ColumnSpan="2" Height="650" Margin="15 15 15 15">
                 <StackPanel x:Name="Feed">
                     <!--Feed-->
