@@ -1,0 +1,43 @@
+﻿<Window x:Class="TP2.Mockup_V.MockupWindow_V"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP2.Mockup_V"
+        mc:Ignorable="d"
+        Title="MockupWindow_V" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Background="gray">
+        <TextBlock FontSize="50" TextAlignment="Center">Inventaire</TextBlock>
+        <WrapPanel HorizontalAlignment="Center">
+            <Button Margin="0 0 10 0" Click="Button_Click">armor</Button>
+            <Button Margin="0 0 10 0" Click="Button_Click_Weapon">weapons</Button>
+            <Button Margin="0 0 10 0" Click="Button_Click_Food">food</Button>
+            <Button Margin="0 0 10 0" Click="Button_Click_2">potions</Button>
+                <Button Margin="0 0 10 0" Click="Button_Click_3">all</Button>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <ToggleButton x:Name="orderByQuantity">orderByQuantity</ToggleButton>
+                <ToggleButton x:Name="weight">remove Heavy</ToggleButton>
+            </WrapPanel>
+        </StackPanel>
+        <WrapPanel Grid.Row="2" x:Name="feed" Background="Gray">
+            
+        </WrapPanel>
+        <Border Grid.Column="1" Background="Gray" BorderBrush="Gray" BorderThickness="10">
+            <WrapPanel Grid.Column="1" Background="Black"></WrapPanel>
+        </Border>
+        <WrapPanel Grid.Row="1" Grid.Column="1" Background="Black"></WrapPanel>
+        
+    </Grid>
+    
+</Window>

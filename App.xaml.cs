@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TP2.classes;
 using TP2.Mockup_O.Classes;
 using System.Xml.Linq;
+using System.Dynamic;
 
 namespace TP2
 {
@@ -21,19 +22,19 @@ namespace TP2
 
         public Dictionary<int, Car> Cars = new Dictionary<int, Car>()
         {
-            { 1, new Car(){Id=1, Image="car1.jpg",Titre="",Description="",Fabricants="Honda",Price=1000,Marque="civic",Annee=2001,Odometre=350} },
-            {2, new Car(){Id=2, Image="car2.jpg",Titre="",Description="", Price=6000   ,Fabricants=" Honda "  ,Marque="Accord  " ,Annee= 2014    ,Odometre =170} },
-            {3, new Car(){Id=3, Image="car3.jpg",Titre="",Description="", Price=5000   ,Fabricants=" Toyota"  ,Marque="Camry   " ,Annee= 2015    ,Odometre =200} },
-            {4, new Car(){Id=4, Image="car4.jpg",Titre="",Description="", Price=8000   ,Fabricants=" Nissan"  ,Marque="Leaf    " ,Annee= 2013    ,Odometre =210} },
-            {5, new Car(){Id=5, Image="car5.jpg",Titre="",Description="", Price=10000  ,Fabricants=" Toyota"  ,Marque="Yaris   " ,Annee= 2021    ,Odometre =20} },
-            {6, new Car(){Id=6, Image="car6.jpg",Titre="",Description="", Price=1000  ,Fabricants="  Honda"  ,Marque=" Civic  " ,Annee=  2001   ,Odometre = 350} },
-            {7, new Car(){Id=7, Image="car7.jpg",Titre="",Description="", Price=6000  ,Fabricants="  Honda"  ,Marque=" Civic  " ,Annee=  2011   ,Odometre = 140} },
-            {8, new Car(){Id=8, Image="car8.jpg",Titre="",Description="", Price=20000  ,Fabricants=" Toyota"  ,Marque="Camry   " ,Annee= 2021    ,Odometre =10} },
-            {9, new Car(){Id=9, Image="car9.jpg",Titre="",Description="", Price=7000   ,Fabricants=" Nissan"  ,Marque="Infiniti" ,Annee= 2015,    Odometre =150} },
-            {10, new Car(){Id=10, Image="car10.jpg",Titre="",Description="", Price=9000   ,Fabricants=" Nissan"  ,Marque="Infiniti" ,Annee=2016,    Odometre = 170} },
-            {11, new Car(){Id=11, Image="car11.jpg",Titre="",Description="", Price=12000  ,Fabricants=" Honda "  ,Marque="Accord  " ,Annee= 2018    ,Odometre =90} },
-            {12, new Car(){Id=12, Image="car12.jpg",Titre="",Description="", Price=5000   ,Fabricants=" Toyota"  ,Marque="Yaris   " ,Annee= 2013    ,Odometre =210} },
-            {13, new Car(){Id=13, Image="car13.jpg",Titre="",Description="", Price=2000   ,Fabricants=" Nissan"  ,Marque="Altima  " ,Annee= 2003    ,Odometre =320 } }
+            { 1, new Car(){Id=1, Image="car1.jpg",Titre="",Description="",Fabricants="Honda",Price=1000,Marque="Civic",Annee=2001,Odometre=350} },
+            {2, new Car(){Id=2, Image="car2.jpg",Titre="",Description="", Price=6000   ,Fabricants="Honda "  ,Marque="Accord" ,Annee= 2014    ,Odometre =170,Date="2021-11-19"} },
+            {3, new Car(){Id=3, Image="car3.jpg",Titre="",Description="", Price=5000   ,Fabricants="Toyota"  ,Marque="Camry" ,Annee= 2015    ,Odometre =200,Date="2021-11-19"} },
+            {4, new Car(){Id=4, Image="car4.jpg",Titre="",Description="", Price=8000   ,Fabricants="Nissan"  ,Marque="Leaf" ,Annee= 2013    ,Odometre =210,Date="2021-11-21" } },
+            {5, new Car(){Id=5, Image="car5.jpg",Titre="",Description="", Price=10000  ,Fabricants="Toyota"  ,Marque="Yaris" ,Annee= 2021    ,Odometre =20,Date="2021-11-21"} },
+            {6, new Car(){Id=6, Image="car6.jpg",Titre="",Description="", Price=1000  ,Fabricants="Honda"  ,Marque=" Civic" ,Annee=  2001   ,Odometre = 350,Date="2021-11-23"} },
+            {7, new Car(){Id=7, Image="car7.jpg",Titre="",Description="", Price=6000  ,Fabricants="Honda"  ,Marque=" Civic" ,Annee=  2011   ,Odometre = 140,Date="2021-11-23"} },
+            {8, new Car(){Id=8, Image="car8.jpg",Titre="",Description="", Price=20000  ,Fabricants="Toyota"  ,Marque="Camry" ,Annee= 2021    ,Odometre =10,Date="2021-11-25"} },
+            {9, new Car(){Id=9, Image="car9.jpg",Titre="",Description="", Price=7000   ,Fabricants="Nissan"  ,Marque="Infiniti" ,Annee= 2015,    Odometre =150,Date="2021-11-25"} },
+            {10, new Car(){Id=10, Image="car10.jpg",Titre="",Description="", Price=9000   ,Fabricants="Nissan"  ,Marque="Infiniti" ,Annee=2016,    Odometre = 170,Date="2021-11-27"} },
+            {11, new Car(){Id=11, Image="car11.jpg",Titre="",Description="", Price=12000  ,Fabricants="Honda "  ,Marque="Accord" ,Annee= 2018    ,Odometre =90,Date="2021-11-27"} },
+            {12, new Car(){Id=12, Image="car12.jpg",Titre="",Description="", Price=5000   ,Fabricants="Toyota"  ,Marque="Yaris" ,Annee= 2013    ,Odometre =210,Date="2021-11-29"} },
+            {13, new Car(){Id=13, Image="car13.jpg",Titre="",Description="", Price=2000   ,Fabricants="Nissan"  ,Marque="Altima" ,Annee= 2003    ,Odometre =320 ,Date="2021-11-29"} }
 
         };
 
@@ -153,7 +154,17 @@ namespace TP2
         // ==============================================================================
         // Mockup Vincent
 
-
+        public Dictionary<int, object> Items = new Dictionary<int, object>()
+        {
+            {1,new weapon(){Id=1,Name="iron sword",Price=20,quantite=1,strength=10,durability=5,weight=10,img="sword.png"} },
+            {2,new armor(){Id=2,Name="iron boots",Price=10,quantite=1,type="boots",durability=10,strength=10,weight=15,img="boots.png"} },
+            {3,new food(){Id=3,Name="bread",Price=2,quantite=2,health=2,weight=1,img="breand.png"} },
+            {4,new potion(){Id=4,Name="health potion",Price=10,quantite=3,effect="regen 10 life",weight=1,img="potion1.png"} },
+            {5,new potion(){Id=5,Name="strength potion",Price=15,quantite=2,effect="+10 strength for 1 minute",weight=2,img="potion3.png"} },
+            {6,new weapon(){Id=6,Name="diamond sword",Price=50,quantite=1,strength=30,durability=100,weight=15,img="sword.png"} },
+            {7,new armor(){Id=7,Name="chestplate",Price=50,quantite=1,type="chest",durability=30,strength=30 ,weight=30,img="chest.png" } },
+            {8,new food(){Id=8,Name="cake",Price=20,quantite=4,health=30,weight=5,img="cake.png" } }
+        };
 
     }
 }
