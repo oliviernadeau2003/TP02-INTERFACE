@@ -13,7 +13,8 @@ namespace TP2.Mockup_O.Classes
         public string Image { get; set; }
         public double Size { get; set; }
         public App.States State { get; set; }
-        public List<App.ProductGenres> Genres { get; set; }
+
+        public List<App.ProductGenres> Genres = new List<App.ProductGenres>();
         public List<string> ImageList { get; set; }
     }
 }

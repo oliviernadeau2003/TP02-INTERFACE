@@ -14,8 +14,6 @@ namespace TP2.Mockup_O.Classes
         public List<string> Platforms { get; set; }
         public string License { get; set; }
         public List<string> NotableGames { get; set; }
-
-        public List<App.ProductGenres> Genres = new List<App.ProductGenres>() { App.ProductGenres.Game_Engine };
         public double Version { get; set; }
 
     }
